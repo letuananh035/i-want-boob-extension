@@ -3,8 +3,14 @@ function renderStatus(statusText) {
 }
 
 function renderImage(imageData) {
-  document.getElementById('image-wrap').href = imageData.url;
-  document.getElementById('image').src = imageData.fixed_height_small_url;
+  var vid = document.getElementById("myVideo");
+  isSupp = vid.canPlayType("video/mp4");
+  if (isSupp == "") {
+        vid.src = "";
+  } else {
+        vid.src = imageData.image_mp4_url;
+  }
+  vid.load();
 }
 
 async function getBoobsUrl() {
